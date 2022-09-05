@@ -15,7 +15,7 @@ $
 $ # Get the pretrain model of arcface and put it on folder /app/arcface_torch/backbones/ms1mv3_arcface_r50_fp16
 $ wget https://github.com/vietbacnguyen96/AI_Awards_Server/releases/download/v1.0.0/backbone.pth
 $ mkdir .\app\arcface_torch\backbones\ms1mv3_arcface_r50_fp16
-$ mv backbone.pth \app\arcface_torch\backbones/ms1mv3_arcface_r50_fp16
+$ mv backbone.pth \app\arcface_torch\backbones\ms1mv3_arcface_r50_fp16
 $
 $ # Install python 3.6.2
 $ https://www.python.org/downloads/release/python-362/
