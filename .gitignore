@@ -1,3 +1,4 @@
 env
-ms1mv3_arcface_r50_fp16
+backbone_ir50_ms1m_epoch120.pth
+backbone.pth
 __pycache__
