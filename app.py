@@ -549,7 +549,9 @@ def facerec_3DFaceModeling():
     if validate_img != True:
         return jsonify({"result": {'message': 'Vui lòng truyền ảnh dưới dạng Base64'}}), 400
     
-    api = 'http://10.1.12.201:5000/3dface'
+    # api = 'http://10.1.12.201:5000/3dface'
+    
+    api = 'http://123.16.55.212:5051/3dface'
 
     # import requests
     # import cv2
