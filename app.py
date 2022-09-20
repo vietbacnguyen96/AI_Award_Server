@@ -347,7 +347,7 @@ def facerec():
             images.append(infer_img.copy())
             bboxes.append("{} {} {} {}".format(xmin, ymin, xmax, ymax))
             # profile_face_ids.append("")
-            generated_face_ids.append("")
+            generated_face_ids.append(None)
     
     p = hnswlib.Index(space = 'cosine', dim = 512)
     p.load_index("indexes/index_" + str(user.id) + '.bin')
@@ -374,7 +374,7 @@ def facerec():
 
         profile_image_id = DefineImages.query.filter_by(person_id=person_id).first()
         # profile_image = cv2.imread("images/" + req['secret_key'] + '/' + profile_image_id.image_id + ".jpg")
-        profile_face_ids.append(profile_image_id.image_id if profile_image_id is not None else '')
+        profile_face_ids.append(profile_image_id.image_id if profile_image_id is not None else None)
 
         now = round(datetime.datetime.now().timestamp() * 1000)
         if prenow == now:
@@ -418,7 +418,6 @@ def facerec_DREAM():
     img = load_image(img_input)
 
     # Step 1: Get a face from current frame.
-    # raw_boxes, square_boxes = mark_detector.extract_cnn_facebox(img)
     # raw_boxes, square_boxes = mark_detector.extract_cnn_facebox(img)
     square_boxes = np.array([[0, 0, img.shape[1], img.shape[0]]])
 
@@ -482,7 +481,7 @@ def facerec_DREAM():
         images.append(cv2.cvtColor(img[y3: y4, x3: x4], cv2.COLOR_BGR2RGB).copy())
         bboxes.append("{} {} {} {}".format(x3, y3, x4, y4))
         # profile_face_ids.append("")
-        generated_face_ids.append("")
+        generated_face_ids.append(None)
  
     p = hnswlib.Index(space = 'cosine', dim = 512)
     p.load_index("indexes/index_" + str(user.id) + '.bin')
@@ -509,7 +508,7 @@ def facerec_DREAM():
 
         profile_image_id = DefineImages.query.filter_by(person_id=person_id).first()
         # profile_image = cv2.imread("images/" + req['secret_key'] + '/' + profile_image_id.image_id + ".jpg")
-        profile_face_ids.append(profile_image_id.image_id if profile_image_id is not None else '')
+        profile_face_ids.append(profile_image_id.image_id if profile_image_id is not None else None)
 
         now = round(datetime.datetime.now().timestamp() * 1000)
         if prenow == now:
@@ -630,7 +629,7 @@ def facerec_3DFaceModeling():
         person_ids.append(person_id)
         profile_image_id = DefineImages.query.filter_by(person_id=person_id).first()
         # profile_image = cv2.imread("images/" + req['secret_key'] + '/' + profile_image_id.image_id + ".jpg")
-        profile_face_ids.append(profile_image_id.image_id if profile_image_id is not None else '')
+        profile_face_ids.append(profile_image_id.image_id if profile_image_id is not None else None)
 
         now = round(datetime.datetime.now().timestamp() * 1000)
         if prenow == now:
